@@ -15,7 +15,7 @@ const getAlbumImages = async ({ data }: CollectionEntry<"albums">) => {
   );
 
   // 4. Shuffle images in random order
-  resolvedImages.sort(() => Math.random() - 0.5);
+  //resolvedImages.sort(() => Math.random() - 0.5);
   return resolvedImages;
 };
 

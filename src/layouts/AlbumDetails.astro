@@ -45,7 +45,7 @@ const images = await getAlbumImages(post);
 ---
 
 <Layout {...layoutProps}>
-  <Header />
+  <Header activeNav="albums"/>
 
   <!-- <div class="progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill">
     <div class="progress-bar h-1 w-0 bg-skin-accent" id="myBar"></div>
@@ -72,10 +72,8 @@ const images = await getAlbumImages(post);
       className="my-2"
     />
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
-      <div
-        class="mx-auto container my-8 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5"
-      >
-        <div class="pswp-gallery pswp-gallery--single-column" id="my-gallery">
+      <div class="mx-auto container">
+        <div class="pswp-gallery pswp-gallery--single-column grid grid-cols-3" id="my-gallery">
           {
             images.map(image => (
               <a
@@ -83,7 +81,7 @@ const images = await getAlbumImages(post);
                 data-pswp-width={image.width}
                 data-pswp-height={image.height}
                 data-cropped="true"
-                class="overflow-hidden  border-primary hover:border-secondary"
+                class="overflow-hidden border-primary hover:border-secondary"
                 target="_blank"
               >
                 <Image
@@ -91,9 +89,9 @@ const images = await getAlbumImages(post);
                   alt={`Image from ${post.data.title} album`}
                   format="avif"
                   quality={40}
-                  class="object-cover w-full  rounded mb-4 border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
+                  class="object-cover not-prose w-full aspect-square rounded border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
                   loading="lazy"
-                  width="310"
+                  width="500"
                   data-cropped="true"
                 />
               </a>
