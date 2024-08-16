@@ -89,7 +89,7 @@ const images = await getAlbumImages(post);
                   alt={`Image from ${post.data.title} album`}
                   format="avif"
                   quality={40}
-                  class="object-cover not-prose w-full aspect-square rounded border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
+                  class="object-cover not-prose w-full aspect-square rounded-lg border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
                   loading="lazy"
                   width="500"
                   data-cropped="true"
@@ -108,8 +108,9 @@ const images = await getAlbumImages(post);
           children: "a",
           pswpModule: () => import("photoswipe"),
         });
-
-        lightbox.init();
+        document.addEventListener("astro:page-load", () => {
+          lightbox.init();
+        });
       </script>
     </article>
 
